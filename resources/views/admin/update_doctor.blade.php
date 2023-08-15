@@ -34,83 +34,62 @@
       @include('admin.navbar');
         <!-- partial -->
 
-
-        @if (session()->has('message'))
-
-        <div class="alert alert-success">
-
-
-                {{ session()->get('message') }}
-
-                <button type="button" class="close" data-bs-dismiss="alert">
-                    X
-                </button>
-        </div>
-            
-        @endif
-
         <div class="container-fluid page-body-wrapper">
-
-            @if (session()->has('message'))
-
-            <div class="alert alert-success">
-    
-    
-                    {{ session()->get('message') }}
-    
-                    <button type="button" class="close" data-bs-dismiss="alert">
-                        X
-                    </button>
-            </div>
-                
-            @endif
-            
-            <div class="container" align="center" style="padding:100px">
-
-                <form action="{{ url('editdoctor',$data->id) }}" method="POST" enctype="multipart/form-data">
-
-                    @csrf
-                    <div style="padding: 15px">
-                        <label for="">Doctor Name</label>
-                        <input type="text" style="color: black" name="name" value="{{ $data->name }}">
-                    </div>
-
-
-                    <div style="padding: 15px">
-                        <label for="">Phone</label>
-                        <input type="number" style="color: black" name="phone" value="{{ $data->phone }}">
-                    </div>
-
-
-                    <div style="padding: 15px">
-                        <label for="">Speciality</label>
-                        <input type="text" style="color: black" name="speciality" value="{{ $data->speciality }}">
-                    </div>
-
-
-                    <div style="padding: 15px">
-                        <label for="">Room</label>
-                        <input type="text" style="color: black" name="name" value="{{ $data->room }}">
-                    </div>
-
-
-                    <div style="padding: 15px">
-                        <label for="">Old image</label>
-                        <img height="150" width="150" src="doctorimage/{{ $data->image }}" alt="">
-                    </div>
-
-                    <div>
-                        <label for="">Change Image</label>
-                        <input type="file" name="file">
-                    </div>
-
-
-                    <div>
-                        <input type="submit" name="file" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
-        </div>
+          <div class="container" align="center" style="padding: 100px;">
+              @if (session()->has('message'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ session()->get('message') }}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              @endif
+      
+              <form action="{{ url('editdoctor', $data->id) }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <div class="mb-3">
+                      <label for="name" class="form-label">Doctor Name</label>
+                      <input type="text" class="form-control" name="name" value="{{ $data->name }}">
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="phone" class="form-label">Phone</label>
+                      <input type="number" class="form-control" name="phone" value="{{ $data->phone }}">
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="speciality" class="form-label">Speciality</label>
+                      <input type="text" class="form-control" name="speciality" value="{{ $data->speciality }}">
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="room" class="form-label">Room</label>
+                      <input type="text" class="form-control" name="room" value="{{ $data->room }}">
+                  </div>
+      
+                  <div class="mb-3">
+                      <label class="form-label">Old Image</label>
+                      <div>
+                          <img class="" width="200px" height="200px" src="doctorimage/{{ $data->image }}" alt="Doctor Image">
+                      </div>
+                  </div>
+      
+                  <div class="mb-3">
+                      <label for="file" class="form-label">Change Image</label>
+                      <input type="file" class="form-control-file" name="file">
+                  </div>
+      
+                  <button type="submit" class="btn btn-primary">Update</button>
+              </form>
+          </div>
+      </div>
+      
+      <style>
+          input[type="text"],
+          input[type="number"],
+          .form-control {
+              color: black;
+          }
+      </style>
+      
     <!-- container-scroller -->
     <!-- plugins:js -->
     @include('admin.script');
