@@ -53,7 +53,7 @@
                     <td style="border: 1px solid white; padding: 25px;">{{ $doctor->room }}</td>
                     <td style="border: 1px solid white; padding: 25px;"><img height="100px" width="130px" src="doctorimage/{{ $doctor->image }}" alt=""></td>
                     <td style="border: 1px solid white; padding: 10px;">
-                      <a style="color: white; background-color: #28a745; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('approved',$doctor->id) }}">Update</a>
+                      <a style="color: white; background-color: #28a745; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('updatedoctor',$doctor->id) }}">Update</a>
                   </td>
                   <td style="border: 1px solid white; padding: 10px;">
                       <a onclick="return confirm('Are you sure to delete this')" style="color: white; background-color: #dc3545; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('deletedoctor',$doctor->id) }}">Delete</a>

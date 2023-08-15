@@ -31,6 +31,8 @@ Route::get('/canceled/{id}',[AdminController::class,'canceled']);
 Route::post('/upload_doctor',[AdminController::class,'upload']);
 Route::get('/showdoctor',[AdminController::class,'showdoctor']);
 Route::get('/deletedoctor/{id}',[AdminController::class,'deletedoctor']);
+Route::get('/updatedoctor/{id}',[AdminController::class,'updatedoctor']);
+Route::post('/editdoctor/{id}',[AdminController::class,'editdoctor']);
 
 
 Route::middleware([

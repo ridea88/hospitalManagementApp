@@ -33,23 +33,7 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
 
-
             <div class="container" align="center" style="padding-top: 100px">
-
-
-            @if (session()->has('message'))
-
-            <div class="alert alert-success">
-
-
-                    {{ session()->get('message') }}
-
-                    <button type="button" class="close" data-bs-dismiss="alert">
-                        X
-                    </button>
-            </div>
-                
-            @endif
                 
                 <form style="width: 500px; margin: 0 auto;" action="{{ url('upload_doctor') }}" method="POST" enctype="multipart/form-data">
                     @csrf
