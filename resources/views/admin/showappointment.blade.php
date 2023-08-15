@@ -32,43 +32,41 @@
       @include('admin.navbar');
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-
             <div align="center" style="padding-top: 100px;">
-                <table>
-                    <tr style="background-color: black;">
-                        <th style="padding: 10px">Customer name</th>
-                        <th style="padding: 10px">Email</th>
-                        <th style="padding: 10px">Phone</th>
-                        <th style="padding: 10px">Doctor Name</th>
-                        <th style="padding: 10px">Date</th>
-                        <th style="padding: 10px">Message</th>
-                        <th style="padding: 10px">Status</th>
-                        <th style="padding: 10px">Approved</th>
-                        <th style="padding: 10px">Canceled</th>
+                <table style="width: 100%; border-collapse: collapse; padding: 10px;">
+                    <tr style="background-color: #343a40; color: white;">
+                        <th style="padding: 10px; border: 1px solid white;">Customer name</th>
+                        <th style="padding: 10px; border: 1px solid white;">Email</th>
+                        <th style="padding: 10px; border: 1px solid white;">Phone</th>
+                        <th style="padding: 10px; border: 1px solid white;">Doctor Name</th>
+                        <th style="padding: 10px; border: 1px solid white;">Date</th>
+                        <th style="padding: 10px; border: 1px solid white;">Message</th>
+                        <th style="padding: 10px; border: 1px solid white;">Status</th>
+                        <th style="padding: 10px; border: 1px solid white;">Approved</th>
+                        <th style="padding: 10px; border: 1px solid white;">Canceled</th>
                     </tr>
                     @foreach ($data as $appointment)
-                        
-                    
-                    <tr align="center" style="background-color:skyblue;">
-                        <td>{{ $appointment->name }}</td>
-                        <td>{{ $appointment->email }}</td>
-                        <td>{{ $appointment->phone }}</td>
-                        <td>{{ $appointment->doctor }}</td>
-                        <td>{{ $appointment->date }}</td>
-                        <td>{{ $appointment->message }}</td>
-                        <td>{{ $appointment->status }}</td>
-                        <td>
-                            <a class="btn btn-success" href="{{ url('approved',$appointment->id) }}">Approved</a>
-                        </td>
-
-                        <td>
-                            <a class="btn btn-danger" href="{{ url('canceled',$appointment->id) }}">Canceled</a>
-                        </td>
-                    </tr>
+                        <tr align="center" style="background-color: #f0f8ff; color: black;">
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->name }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->email }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->phone }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->doctor }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->date }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->message }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">{{ $appointment->status }}</td>
+                            <td style="border: 1px solid white; padding: 10px;">
+                                <a style="color: white; background-color: #28a745; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('approved',$appointment->id) }}">Approved</a>
+                            </td>
+                            <td style="border: 1px solid white; padding: 10px;">
+                                <a style="color: white; background-color: #dc3545; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('canceled',$appointment->id) }}">Canceled</a>
+                            </td>
+                        </tr>
                     @endforeach
                 </table>
             </div>
         </div>
+        
+        
     <!-- container-scroller -->
     <!-- plugins:js -->
     @include('admin.script');
