@@ -17,7 +17,7 @@ use App\Http\Controllers\AdminController;
 
 
 Route::get('/',[HomeController::class,'index']);
-Route::get('/home',[HomeController::class,'redirect']);
+Route::get('/home',[HomeController::class,'redirect'])->middleware('auth','verified');
 Route::get('/myappointment',[HomeController::class,'myappointment']);
 Route::get('/cancel_appointment/{id}',[HomeController::class,'cancel_appointment']);
 Route::post('/appointment',[HomeController::class,'appointment']);
@@ -33,6 +33,8 @@ Route::get('/showdoctor',[AdminController::class,'showdoctor']);
 Route::get('/deletedoctor/{id}',[AdminController::class,'deletedoctor']);
 Route::get('/updatedoctor/{id}',[AdminController::class,'updatedoctor']);
 Route::post('/editdoctor/{id}',[AdminController::class,'editdoctor']);
+Route::get('/emailview/{id}',[AdminController::class,'emailview']);
+Route::post('/sendemail/{id}',[AdminController::class,'sendemail']);
 
 
 Route::middleware([

@@ -44,6 +44,7 @@
                         <th style="padding: 10px; border: 1px solid white;">Status</th>
                         <th style="padding: 10px; border: 1px solid white;">Approved</th>
                         <th style="padding: 10px; border: 1px solid white;">Canceled</th>
+                        <th style="padding: 10px; border: 1px solid white;">Send Mail</th>
                     </tr>
                     @foreach ($data as $appointment)
                         <tr align="center" style="background-color: #f0f8ff; color: black;">
@@ -60,6 +61,10 @@
                             <td style="border: 1px solid white; padding: 10px;">
                                 <a style="color: white; background-color: #dc3545; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('canceled',$appointment->id) }}">Canceled</a>
                             </td>
+                            <td style="border: 1px solid white; padding: 10px;">
+                              <a style="color: white; background-color: #007bff; padding: 5px 10px; text-decoration: none; border-radius: 5px;" href="{{ url('emailview',$appointment->id) }}">Send</a>
+                          </td>
+                          
                         </tr>
                     @endforeach
                 </table>
