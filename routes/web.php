@@ -18,6 +18,8 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/home',[HomeController::class,'redirect']);
+Route::get('/myappointment',[HomeController::class,'myappointment']);
+Route::get('/cancel_appointment/{id}',[HomeController::class,'cancel_appointment']);
 Route::post('/appointment',[HomeController::class,'appointment']);
 
 

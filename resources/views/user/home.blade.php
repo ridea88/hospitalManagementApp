@@ -86,10 +86,17 @@
             @if (Route::has('login'))
             
             @auth
-            <x-app-layout>
-            </x-app-layout>
-            
+         
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('myappointment') }}">My Appointment</a>
+            </li>
 
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+
+              <input type="submit" value="Logout">
+
+          </form>
             @else
 
             <li class="nav-item">
